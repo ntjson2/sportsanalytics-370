@@ -1,9 +1,12 @@
-# Install all these
+# Run all of these in terminal of location of cloned git repo
 npm init -y
 npm install express 
 npm install pug axios
 npm install bootstrap@5.3.2
 npm install pm2 --save-dev
 
-# Then in terminal
+#Create .env file at root of directory, put in API_KEY ex/
+API_KEY=mysupersectretfakekeyf984764fakefakefake
+
+# Then in terminal to fire up server
 npm run dev
