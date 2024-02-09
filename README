@@ -1,3 +1,6 @@
+# Good helper tutorial here if needed...
+https://betterstack.com/community/guides/scaling-nodejs/build-nodejs-application-express-pug/
+
 # Run all of these in terminal of location of cloned git repo
 npm init -y
 npm install express 
