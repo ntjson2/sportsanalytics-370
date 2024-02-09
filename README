@@ -10,6 +10,7 @@ npm install pm2 --save-dev
 
 #Create .env file at root of directory, put in your API NBA api key ex/
 API_KEY=mysupersectretfakekeyf984764fakefakefake
+#OR put it in the index.js file. (not a good idea for production) ex/  'X-RapidAPI-Key': '15b24a....2ce7f984764',
 
 # Then in terminal to fire up server
 npm run dev

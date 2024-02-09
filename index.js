@@ -16,6 +16,8 @@ app.get("/sports", async (req, res) => {
   res.render("sports", { sportData: data.response});
 });
 
+const apiKey = process.env.API_KEY;
+
 // API that drives 'sports' page
 async function getSportsData() {
                        
@@ -24,7 +26,7 @@ async function getSportsData() {
           url: 'https://api-nba-v1.p.rapidapi.com/games',
           params: {season: '2023'},
           headers: {
-            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Key': '15b24af7b6msh7e5d4f6d8745ad4p18db28jsn02ce7f984764',
             'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
           }
         };
