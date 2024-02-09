@@ -1,0 +1,10 @@
+# Install all these
+npm init -y
+npm install express 
+npm install pug axios
+npm install bootstrap@5.3.2
+npm install pm2 --save-dev
+
+# Then create folder structure
+# views > includes
+# views > mixins
