@@ -2,6 +2,10 @@ const express = require("express");
 const axios = require("axios");
 const app = express();
 app.set("view engine", "pug");
+const dotenv = require('dotenv'); // Needed to access .env files  
+dotenv.config();
+
+//console.log(`Your port is ${process.env.PORT}`);
 
 // Home page (just for testing)
 app.get("/", async (req, res) => {
@@ -17,23 +21,24 @@ app.get("/sports", async (req, res) => {
 });
 
 const apiKey = process.env.API_KEY;
+const options = {
+  method: 'GET',
+  url: 'https://api-nba-v1.p.rapidapi.com/games',
+  params: {season: '2023'},
+  headers: {
+    'X-RapidAPI-Key': apiKey,
+    'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+  }
+};
+
 
 // API that drives 'sports' page
 async function getSportsData() {
-                       
-        const options = {
-          method: 'GET',
-          url: 'https://api-nba-v1.p.rapidapi.com/games',
-          params: {season: '2023'},
-          headers: {
-            'X-RapidAPI-Key': '15b24af7b6msh7e5d4f6d8745ad4p18db28jsn02ce7f984764',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-          }
-        };
 
         try {
           const response = await axios.request(options);          
           return response.data;
+
         } catch (error) {
           console.error(error);
         }   
