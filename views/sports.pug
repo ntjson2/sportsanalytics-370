@@ -4,6 +4,19 @@ include mixins/_thumbCard
 block content
     .album.py-5.bg-light
         .container
+            .row.bg-body-secondary.rounded
+                .col-sm-2.shadow-md
+                    h4.text-primary Rank   
+                .col-sm-2.shadow-md
+                    h4 Team
+                .col-sm-2.shadow-md
+                    h4 FGA
+                .col-sm-2.shadow-md
+                    h4 FGA%
+                .col-sm-2.shadow-md
+                    h4 Turnovers
+                .col-sm-2.shadow-md
+                    h4 PF
             .row
                 each sport in sportData
                     +thumbCard(sport)

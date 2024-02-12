@@ -7,19 +7,37 @@ dotenv.config();
 
 //console.log(`Your port is ${process.env.PORT}`);
 
+const csvFilePath='per_game_stats-2020-23.csv'
+const csv=require('csvtojson')
+/* csv()
+.fromFile(csvFilePath)
+.then((jsonObj)=>{
+  console.log('asdf');
+  console.log(jsonObj);
+  
+}) */
+
 // Home page (just for testing)
 app.get("/", async (req, res) => {
   const query = await axios.get("https://randomuser.me/api/?results=9");
-  console.log(query.data);
+  //console.log(query.data);
   res.render("index", { users: query.data.results });
 });
 
 // 'sports' page driven by pug template -> sports.pug -> _thumbCard.pug
 app.get("/sports", async (req, res) => {
-  const data = await getSportsData();  
-  res.render("sports", { sportData: data.response});
+
+  await csv()
+  .fromFile(csvFilePath)
+  .then((jsonObj)=>{
+    //console.log(jsonObj);     
+    res.render("sports", { sportData: jsonObj}); 
+  })
+  //const data = await getSportsData();  
+  
 });
 
+// Working API with .env key
 const apiKey = process.env.API_KEY;
 const options = {
   method: 'GET',
@@ -30,7 +48,6 @@ const options = {
     'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
   }
 };
-
 
 // API that drives 'sports' page
 async function getSportsData() {
