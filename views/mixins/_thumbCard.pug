@@ -2,20 +2,65 @@ mixin thumbCard(sport)
     .col-sm-2.shadow-md
         p #{sport.Rk} 
     .col-sm-2.shadow-md
-        p #{sport.Team} 
-    .col-sm-2.shadow-md
-        p #{sport.FGA} 
-    .col-sm-2.shadow-md
-        p #{sport.FGPER} -fgper
-    if sport.TOV > 16
-        .col-sm-2.shadow-md.border.border-danger
-            p #{sport.TOV}
-    else if sport.TOV > 15
-        .col-sm-2.shadow-md.border.border-warning
-            p #{sport.TOV}
+        p #{sport.Player} 
+
+
+    // FGP
+    if sport.FGP > 70
+        .col-sm-2.shadow-md.text-bg-danger
+            p #{sport.FGP}%
+    else if sport.FGP > 58
+        .col-sm-2.shadow-md.text-bg-warning
+            p #{sport.FGP}%
+    else if sport.FGP < 30
+        .col-sm-2.shadow-md.text-bg-info
+            p #{sport.FGP}% 
+    else 
+        .col-sm-2.shadow-md
+            p #{sport.FGP}%
+
+
+    // Usage
+    if sport.Usage > 27
+        .col-sm-2.shadow-md.text-bg-danger
+            p #{sport.Usage}
+    else if sport.Usage > 22
+        .col-sm-2.shadow-md.text-bg-warning
+            p #{sport.Usage}
+    else if sport.Usage < 13
+        .col-sm-2.shadow-md.text-bg-info
+            p #{sport.Usage}
     else
         .col-sm-2.shadow-md
-            p #{sport.TOV}
-                              
-    .col-sm-2.shadow-md
-        p #{sport.PF} 
+            p #{sport.Usage}    
+
+    // FPM
+    if sport.FPM > 0.35
+        .col-sm-2.shadow-md.text-bg-danger
+            p #{sport.FPM}
+    else if sport.FPM > 0.3
+        .col-sm-2.shadow-md.text-bg-warning
+            p #{sport.FPM}
+    else if sport.FPM < 0.2
+        .col-sm-2.shadow-md.text-bg-info
+            p #{sport.FPM}
+    else
+        .col-sm-2.shadow-md
+            p #{sport.FPM}    
+
+    // THREE_PERCENT
+    if sport.THREE_PERCENT > 75
+        .col-sm-2.shadow-md.text-bg-danger
+            p #{sport.THREE_PERCENT}%
+    else if sport.THREE_PERCENT > 59
+        .col-sm-2.shadow-md.text-bg-warning
+            p #{sport.THREE_PERCENT}%
+    else if sport.THREE_PERCENT < 25
+        .col-sm-2.shadow-md.text-bg-info
+            p #{sport.THREE_PERCENT}% 
+    else 
+        .col-sm-2.shadow-md
+            p #{sport.THREE_PERCENT}%
+
+
+

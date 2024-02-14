@@ -8,7 +8,9 @@ npm install pug axios
 npm install bootstrap@5.3.2
 npm install pm2 --save-dev
 npm install dotenv
+npm i --save csvtojson
 
+# !!!! NOTE you dont need this below to run this project, it is an extra step if this is to be used with an API key system
 #Create .env file at root of directory, put in your API NBA api key ex/
 API_KEY=mysupersectretfakekeyf984764fakefakefake
 #OR put it in the index.js file. (not a good idea for production) ex/  'X-RapidAPI-Key': '15b24a....2ce7f984764',
