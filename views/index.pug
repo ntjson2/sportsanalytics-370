@@ -1,5 +1,5 @@
 extends layout.pug
-include mixins/_thumbCard
+include mixins/_thumbIndexMixin
 
 block content
     .album.py-5.bg-light
@@ -8,3 +8,6 @@ block content
                 h1 Fantasy Basketball Player Analyzer
                 p
                     a(href='sports') Sports Data Page 
+            .row
+                each apSport in spDataApi
+                    +thumbIndexMixin(apSport)

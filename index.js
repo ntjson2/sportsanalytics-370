@@ -4,16 +4,15 @@ const app = express()
 app.set('view engine', 'pug')
 const dotenv = require('dotenv') // Needed to access .env files
 dotenv.config()
-
-
 const csvFilePath = 'playerPrevDay.csv'
 const csv = require('csvtojson')
 
 // Home page (just for testing)
 app.get('/', async (req, res) => {
-  //const query = await axios.get('https://randomuser.me/api/?results=9')
-  //console.log(query.data);
-  res.render('index', { users: null})
+  const query = await getSportsData();
+  //await axios.get('https://randomuser.me/api/?results=9')
+  console.log(query.response);
+  res.render('index', { spDataApi: query.response})
 })
 
 // 'sports' page driven by pug template -> sports.pug -> _thumbCard.pug
